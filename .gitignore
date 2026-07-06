@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Local dev tooling / not part of the theme
+.venv/
+.claude/
+backup-archive/
+scratchpad/
