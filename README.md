@@ -8,6 +8,8 @@ angular techno display type.
 > Not affiliated with or endorsed by CD PROJEKT RED. "Cyberpunk 2077" is a
 > trademark of CD PROJEKT S.A. This is a fan-made, non-commercial theme.
 
+![Wake Up, Samurai theme screenshot showing YAML properties, headings, a blockquote, a code block, a table, tasks, and a callout in the Cyberpunk 2077 style](wake-up-samurai.png)
+
 ## Features
 
 - **HUD chrome** — bordered, softly-glowing panes; a tinted, blurred sidebar
@@ -29,7 +31,28 @@ angular techno display type.
 
 ## Installation
 
+### From Community Themes (recommended)
+
+This assumes:
+
+- A desktop or mobile build of Obsidian with internet access — Community
+  Themes are fetched live from the community theme registry and aren't
+  available in restricted/offline setups.
+- At least one vault already created and open.
+- The theme has been submitted and accepted into the community list (see
+  *Submission status* below) — until then, use the manual method.
+
+Steps:
+
+1. **Settings → Appearance**, scroll to **Themes**, click **Manage**.
+2. Search for **Wake Up, Samurai**.
+3. Click it to install, then select it — Obsidian downloads and activates
+   the theme automatically, with no manual file handling.
+
 ### Manual
+
+Use this if the theme isn't showing up in Community Themes yet (e.g. it's
+pending review), or you're installing from a local clone of this repo.
 
 1. Copy the theme folder into your vault:
    `<your vault>/.obsidian/themes/Wake Up, Samurai/`
@@ -45,6 +68,13 @@ cp manifest.json theme.css "<your vault>/.obsidian/themes/Wake Up, Samurai/"
 ```
 
 Then pick the theme in Appearance settings.
+
+### Submission status
+
+This theme is packaged for submission to Obsidian's community theme list per
+the [official submission guidelines](https://docs.obsidian.md/Themes/App+themes/Submit+your+theme).
+Until it's merged into `community-css-themes.json` and available in the
+in-app browser, install manually.
 
 ## Fonts
 
