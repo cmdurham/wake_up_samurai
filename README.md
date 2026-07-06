@@ -1,4 +1,4 @@
-# Wake Up, Samurai
+# Wake Up Samurai
 
 A *Cyberpunk 2077*–inspired dark theme for [Obsidian](https://obsidian.md).
 It dresses the workspace as a Night City HUD: an oxblood-to-charcoal
@@ -8,7 +8,7 @@ angular techno display type.
 > Not affiliated with or endorsed by CD PROJEKT RED. "Cyberpunk 2077" is a
 > trademark of CD PROJEKT S.A. This is a fan-made, non-commercial theme.
 
-![Wake Up, Samurai theme screenshot showing YAML properties, headings, a blockquote, a code block, a table, tasks, and a callout in the Cyberpunk 2077 style](wake-up-samurai.png)
+![Wake Up Samurai theme screenshot showing YAML properties, headings, a blockquote, a code block, a table, tasks, and a callout in the Cyberpunk 2077 style](wake-up-samurai.png)
 
 ## Features
 
@@ -45,7 +45,7 @@ This assumes:
 Steps:
 
 1. **Settings → Appearance**, scroll to **Themes**, click **Manage**.
-2. Search for **Wake Up, Samurai**.
+2. Search for **Wake Up Samurai**.
 3. Click it to install, then select it — Obsidian downloads and activates
    the theme automatically, with no manual file handling.
 
@@ -55,16 +55,16 @@ Use this if the theme isn't showing up in Community Themes yet (e.g. it's
 pending review), or you're installing from a local clone of this repo.
 
 1. Copy the theme folder into your vault:
-   `<your vault>/.obsidian/themes/Wake Up, Samurai/`
+   `<your vault>/.obsidian/themes/Wake Up Samurai/`
    (it must contain `manifest.json` and `theme.css`).
 2. In Obsidian: **Settings → Appearance → Themes**, and select
-   **Wake Up, Samurai**.
+   **Wake Up Samurai**.
 
 Or from a terminal:
 
 ```sh
-mkdir -p "<your vault>/.obsidian/themes/Wake Up, Samurai"
-cp manifest.json theme.css "<your vault>/.obsidian/themes/Wake Up, Samurai/"
+mkdir -p "<your vault>/.obsidian/themes/Wake Up Samurai"
+cp manifest.json theme.css "<your vault>/.obsidian/themes/Wake Up Samurai/"
 ```
 
 Then pick the theme in Appearance settings.
