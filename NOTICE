@@ -1,0 +1,14 @@
+Wake Up Samurai — Obsidian theme
+Copyright (c) 2026 Chris Durham
+
+The MIT License (see LICENSE) applies to the theme's CSS, manifest, and
+documentation.
+
+The web fonts embedded in theme.css (as base64 @font-face data) are licensed
+separately under the SIL Open Font License, Version 1.1:
+
+    Teko          © The Indian Type Foundry
+    Rajdhani      © The Indian Type Foundry
+    Electrolize   © Font Diner
+
+See fonts/OFL.txt for the full font license text and copyright notices.

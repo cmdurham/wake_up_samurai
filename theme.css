@@ -211,6 +211,36 @@ body {
   --tag-background: rgba(246,218,99,0.14);
   --tag-border-color: rgba(246,218,99,0.6);
   --tag-color: var(--cp-gold);
+
+  /* ===== Headings — driven through Obsidian's native vars so both
+     reading and live-preview inherit them without !important ===== */
+  --h1-font: var(--cp-font-display);
+  --h2-font: var(--font-interface);
+  --h3-font: var(--font-interface);
+  --h4-font: var(--font-interface);
+  --h5-font: var(--font-interface);
+  --h6-font: var(--font-interface);
+  --h1-color: var(--cp-blue);
+  --h2-color: var(--cp-blue);
+  --h3-color: var(--cp-green);
+  --h4-color: rgba(62,234,154,0.75);
+  --h5-color: var(--cp-gold-dim);
+  --h6-color: var(--cp-red-muted);
+  --h1-weight: 600;
+  --h2-weight: 500;
+  --h3-weight: 500;
+  --h4-weight: 500;
+  --h5-weight: 600;
+  --h6-weight: 500;
+
+  /* Inline note title matches H1 */
+  --inline-title-font: var(--cp-font-display);
+  --inline-title-color: var(--cp-blue);
+  --inline-title-weight: 600;
+
+  /* Bold emphasis (gold) */
+  --bold-color: var(--cp-gold);
+  --bold-weight: 700;
 }
 
 /* ==========================================================
@@ -232,7 +262,7 @@ body {
       #3a1217 0%,   /* oxblood red */
       #1b0f12 38%,  /* deep maroon */
       #0b0f14 100%  /* blue-black charcoal */
-    ) !important;
+    );
 
   background-size: 400% 400%;
   animation: cpGradientShift 60s ease infinite;
@@ -252,36 +282,38 @@ body {
       rgba(0,0,0,0.00) 58%,
       rgba(58,18,23,0.26) 85%,
       rgba(0,0,0,0.32) 100%
-    ) !important;
+    );
 }
 
 /* Lift content above overlays */
 .app-container > * { position: relative; z-index: 1; }
 
-/* Transparent panes to reveal the gradient */
-.workspace,
-.workspace-split,
-.workspace-split.mod-root,
-.workspace-leaf,
-.workspace-leaf-content,
-.workspace-tab-container,
-.view-content,
-.markdown-preview-view,
-.markdown-source-view,
-.cm-s-obsidian,
-.cm-editor,
-.cm-scroller {
-  background: transparent !important;
-  box-shadow: none !important;
+/* Transparent panes to reveal the gradient.
+   The .theme-dark prefix outranks Obsidian's core pane backgrounds so
+   these win on specificity without needing !important. */
+.theme-dark .workspace,
+.theme-dark .workspace-split,
+.theme-dark .workspace-split.mod-root,
+.theme-dark .workspace-leaf,
+.theme-dark .workspace-leaf-content,
+.theme-dark .workspace-tab-container,
+.theme-dark .view-content,
+.theme-dark .markdown-preview-view,
+.theme-dark .markdown-source-view,
+.theme-dark .cm-s-obsidian,
+.theme-dark .cm-editor,
+.theme-dark .cm-scroller {
+  background: transparent;
+  box-shadow: none;
 }
 
 /* Semi-opaque sidebars for readability (HUD plate) */
-.workspace-ribbon,
-.sidebar,
-.nav-files-container,
-.nav-folder,
-.nav-folder-children {
-  background-color: rgba(19,25,34,0.90) !important; /* #131922 @ 90% */
+.theme-dark .workspace-ribbon,
+.theme-dark .sidebar,
+.theme-dark .nav-files-container,
+.theme-dark .nav-folder,
+.theme-dark .nav-folder-children {
+  background-color: rgba(19,25,34,0.90); /* #131922 @ 90% */
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   box-shadow: none;
@@ -383,11 +415,11 @@ body {
 
 /* Search highlight (blue) */
 .search-result-file-title { color: var(--text-normal); }
-.search-result-file-matched-text,
+.theme-dark .search-result-file-matched-text,
 .markdown-preview-view .is-highlighted,
-.cm-s-obsidian .cm-searchMatch {
-  background: rgba(110,198,255,0.20) !important;
-  color: var(--text-normal) !important;
+.theme-dark .cm-s-obsidian .cm-searchMatch {
+  background: rgba(110,198,255,0.20);
+  color: var(--text-normal);
   outline: 1px solid rgba(110,198,255,0.45);
 }
 
@@ -400,7 +432,7 @@ body,
 .markdown-preview-view,
 .cm-s-obsidian .cm-line,
 .view-content {
-  font-family: var(--font-text) !important;
+  font-family: var(--font-text);
   font-weight: 450;
   letter-spacing: 0.01em;
   color: var(--text-normal);
@@ -417,12 +449,13 @@ body,
    H5 — gold micro-label   H6 — muted red micro-label
 ---------------------------------------------------------------- */
 
-/* Shared heading chrome (all levels, both views) */
+/* Shared heading chrome (all levels, both views).
+   Fonts/weights/colors come from the --hN-* vars set in .theme-dark;
+   only the shared uppercasing lives here. */
 .markdown-preview-view h1, .markdown-preview-view h2,
 .markdown-preview-view h3, .markdown-preview-view h4,
 .markdown-preview-view h5, .markdown-preview-view h6,
 .cm-s-obsidian .cm-header {
-  font-family: var(--font-interface) !important;
   text-transform: uppercase;
 }
 
@@ -430,13 +463,10 @@ body,
 .markdown-preview-view h1,
 .cm-s-obsidian .cm-header-1 {
   font-size: 1.65em;
-  font-weight: 600 !important;
   letter-spacing: 0.08em;
-  color: var(--cp-blue);
   text-shadow: 0 0 14px rgba(110,198,255,0.35);
 }
 .markdown-preview-view h1 {
-  font-family: var(--cp-font-display) !important;
   margin-top: 1.5em;
   margin-bottom: 0.9em;
   padding-bottom: 0.3em;
@@ -450,8 +480,7 @@ body,
   text-shadow: 0 0 8px rgba(226,61,61,0.6);
 }
 .cm-s-obsidian .HyperMD-header-1 {
-  font-family: var(--cp-font-display) !important;
-  padding-top: 1em !important;
+  padding-top: 1em !important;   /* !important: overrides CodeMirror line padding */
   padding-bottom: 0.4em !important;
   border-bottom: 2px solid rgba(110,198,255,0.55);
 }
@@ -460,9 +489,7 @@ body,
 .markdown-preview-view h2,
 .cm-s-obsidian .cm-header-2 {
   font-size: 1.28em;
-  font-weight: 500 !important;
   letter-spacing: 0.06em;
-  color: var(--cp-blue);
 }
 .markdown-preview-view h2 {
   margin-top: 1.5em;
@@ -482,9 +509,7 @@ body,
 .markdown-preview-view h3,
 .cm-s-obsidian .cm-header-3 {
   font-size: 1.12em;
-  font-weight: 500 !important;
   letter-spacing: 0.07em;
-  color: var(--cp-green);
   text-shadow: 0 0 10px rgba(62,234,154,0.25);
 }
 .markdown-preview-view h3 {
@@ -496,9 +521,7 @@ body,
 .markdown-preview-view h4,
 .cm-s-obsidian .cm-header-4 {
   font-size: 1em;
-  font-weight: 500 !important;
   letter-spacing: 0.08em;
-  color: rgba(62,234,154,0.75);
 }
 .markdown-preview-view h4 {
   margin-top: 1.2em;
@@ -514,16 +537,12 @@ body,
 .markdown-preview-view h5,
 .cm-s-obsidian .cm-header-5 {
   font-size: 0.95em;
-  font-weight: 600 !important;
   letter-spacing: 0.1em;
-  color: var(--cp-gold-dim);
 }
 .markdown-preview-view h6,
 .cm-s-obsidian .cm-header-6 {
   font-size: 0.9em;
-  font-weight: 500 !important;
   letter-spacing: 0.1em;
-  color: var(--cp-red-muted);
 }
 .markdown-preview-view h5,
 .markdown-preview-view h6 {
@@ -531,7 +550,8 @@ body,
   margin-bottom: 0.5em;
 }
 
-/* Live-preview breathing room for lower headings */
+/* Live-preview breathing room for lower headings.
+   !important: overrides CodeMirror's per-line padding. */
 .cm-s-obsidian .HyperMD-header-3,
 .cm-s-obsidian .HyperMD-header-4,
 .cm-s-obsidian .HyperMD-header-5,
@@ -540,37 +560,38 @@ body,
   padding-bottom: 0.25em !important;
 }
 
-/* Inline note title matches H1 */
+/* Inline note title matches H1 (font/weight/color via --inline-title-* vars) */
 .inline-title {
-  font-family: var(--cp-font-display) !important;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-weight: 600 !important;
-  color: var(--cp-blue);
   text-shadow: 0 0 14px rgba(110,198,255,0.35);
   border-bottom: 2px solid rgba(110,198,255,0.55);
   padding-bottom: 0.15em;
   margin-bottom: 0.6em;
 }
 
-/* Monospace for code */
-.markdown-preview-view pre code,
-.cm-s-obsidian .HyperMD-codeblock,
-.markdown-preview-view code,
-.cm-s-obsidian .cm-inline-code {
-  font-family: var(--font-monospace) !important;
-}
-
 /* ---- BLOCKQUOTES — "data shard" contrast panel ---------------
-   No side bar; a bordered, notched-corner panel in shard cyan. */
+   No side bar; a bordered contrast panel in shard cyan, with a HUD
+   corner bracket at the bottom-right (border-only, no clip-path). */
 .markdown-preview-view blockquote {
+  position: relative;
   margin: 1em 0;
   padding: 0.85rem 1.1rem;
   border: 1px solid rgba(110,198,255,0.28);
   background: rgba(17,26,36,0.92);
   color: #cfe3ee;
   font-style: normal;
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+}
+.markdown-preview-view blockquote::after {
+  content: "";
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid rgba(110,198,255,0.55);
+  border-bottom: 2px solid rgba(110,198,255,0.55);
+  pointer-events: none;
 }
 .markdown-preview-view blockquote p { color: #cfe3ee; }
 
@@ -614,15 +635,15 @@ body,
 
 /* Reading view: chrome lives on <pre>, not on every code line */
 .markdown-preview-view pre {
-  background: var(--code-background) !important;
+  background: var(--code-background);
   border: 1px solid rgba(226,61,61,0.45);
   box-shadow: 0 0 8px rgba(226,61,61,0.25);
   border-radius: 2px;
   padding: 0.75rem 1rem;
 }
 .markdown-preview-view pre code {
-  background: transparent !important;
-  color: var(--code-normal) !important;
+  background: transparent;
+  color: var(--code-normal);
   border: none;
   box-shadow: none;
   padding: 0;
@@ -633,7 +654,8 @@ body,
 
 /* Live preview: every .HyperMD-codeblock is one LINE — a full border
    here draws a rule under each line. Sides on every line; top/bottom
-   only on the fence lines. */
+   only on the fence lines. !important is required throughout to override
+   CodeMirror's per-line background and border rendering. */
 .cm-s-obsidian .HyperMD-codeblock {
   background: var(--code-background) !important;
   color: var(--code-normal) !important;
@@ -739,7 +761,7 @@ body,
 }
 .callout-title {
   color: var(--cp-gold);
-  font-family: var(--font-interface) !important;
+  font-family: var(--font-interface);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-weight: 600;
@@ -967,15 +989,13 @@ input:focus, textarea:focus {
    13. BOLD EMPHASIS (gold + bold)
    ========================================================== */
 
-.markdown-preview-view strong,
-.markdown-preview-view b {
-  font-weight: 700 !important;
-  color: var(--cp-gold) !important;
-}
+/* Reading-view bold is handled by --bold-color / --bold-weight (set in
+   .theme-dark). Live-preview bold gets an explicit rule; it wins on
+   source order without !important. */
 .cm-s-obsidian .cm-strong,
 .cm-s-obsidian .cm-formatting-strong {
-  font-weight: 700 !important;
-  color: var(--cp-gold) !important;
+  font-weight: 700;
+  color: var(--cp-gold);
 }
 
 /* ==========================================================
@@ -1017,7 +1037,6 @@ input:focus, textarea:focus {
 .markdown-preview-view .task-list-item.is-checked {
   color: var(--text-faint);
   text-decoration: line-through;
-  text-decoration-color: rgba(226,61,61,0.4);
 }
 
 /* Table row scan-highlight on hover */
@@ -1031,7 +1050,7 @@ input:focus, textarea:focus {
   padding-bottom: 0.4em;
 }
 .metadata-property-key-input {
-  color: var(--cp-gold-dim) !important;
+  color: var(--cp-gold-dim);
   font-family: var(--font-interface);
   letter-spacing: 0.04em;
 }
@@ -1077,11 +1096,13 @@ input:focus, textarea:focus {
   border-radius: 1px;
 }
 
-/* Unresolved internal links — dashed, dimmer (not yet created) */
+/* Unresolved internal links — dashed, dimmer (not yet created).
+   The a.is-unresolved compound selector already outranks the base link
+   rule, so no !important is needed. */
 .markdown-preview-view a.is-unresolved {
-  color: var(--text-faint) !important;
-  border-bottom: 1px dashed rgba(226,61,61,0.5) !important;
-  text-shadow: none !important;
+  color: var(--text-faint);
+  border-bottom: 1px dashed rgba(226,61,61,0.5);
+  text-shadow: none;
 }
 
 /* Footnotes */
