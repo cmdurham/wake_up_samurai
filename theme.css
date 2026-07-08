@@ -479,9 +479,11 @@ body,
   margin-right: 0.3em;
   text-shadow: 0 0 8px rgba(226,61,61,0.6);
 }
-.cm-s-obsidian .HyperMD-header-1 {
-  padding-top: 1em !important;   /* !important: overrides CodeMirror line padding */
-  padding-bottom: 0.4em !important;
+/* .markdown-source-view.mod-cm6 .cm-line.* matches core's own selector
+   shape, so these outrank core line padding on source order alone. */
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-1 {
+  padding-top: 1em;
+  padding-bottom: 0.4em;
   border-bottom: 2px solid rgba(110,198,255,0.55);
 }
 
@@ -498,9 +500,9 @@ body,
   border-bottom: 1px solid;
   border-image: linear-gradient(90deg, rgba(110,198,255,0.55), rgba(110,198,255,0) 65%) 1;
 }
-.cm-s-obsidian .HyperMD-header-2 {
-  padding-top: 0.9em !important;
-  padding-bottom: 0.3em !important;
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-2 {
+  padding-top: 0.9em;
+  padding-bottom: 0.3em;
   border-bottom: 1px solid;
   border-image: linear-gradient(90deg, rgba(110,198,255,0.55), rgba(110,198,255,0) 65%) 1;
 }
@@ -550,14 +552,13 @@ body,
   margin-bottom: 0.5em;
 }
 
-/* Live-preview breathing room for lower headings.
-   !important: overrides CodeMirror's per-line padding. */
-.cm-s-obsidian .HyperMD-header-3,
-.cm-s-obsidian .HyperMD-header-4,
-.cm-s-obsidian .HyperMD-header-5,
-.cm-s-obsidian .HyperMD-header-6 {
-  padding-top: 0.8em !important;
-  padding-bottom: 0.25em !important;
+/* Live-preview breathing room for lower headings */
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-3,
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-4,
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-5,
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-6 {
+  padding-top: 0.8em;
+  padding-bottom: 0.25em;
 }
 
 /* Inline note title matches H1 (font/weight/color via --inline-title-* vars) */
@@ -654,25 +655,28 @@ body,
 
 /* Live preview: every .HyperMD-codeblock is one LINE — a full border
    here draws a rule under each line. Sides on every line; top/bottom
-   only on the fence lines. !important is required throughout to override
-   CodeMirror's per-line background and border rendering. */
-.cm-s-obsidian .HyperMD-codeblock {
-  background: var(--code-background) !important;
-  color: var(--code-normal) !important;
-  border: none !important;
-  box-shadow: none !important;
-  text-decoration: none !important;
-  border-left: 1px solid rgba(226,61,61,0.45) !important;
-  border-right: 1px solid rgba(226,61,61,0.45) !important;
+   only on the fence lines. The .mod-cm6 .cm-line selector matches
+   core's own shape, so it wins on source order without !important.
+   font-family is restated here so the codeblock keeps the mono font
+   over the body-text rule on .cm-line above. */
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock {
+  background: var(--code-background);
+  color: var(--code-normal);
+  border: none;
+  box-shadow: none;
+  text-decoration: none;
+  border-left: 1px solid rgba(226,61,61,0.45);
+  border-right: 1px solid rgba(226,61,61,0.45);
+  font-family: var(--font-monospace);
   font-size: 0.92rem;
   line-height: 1.45;
 }
-.cm-s-obsidian .HyperMD-codeblock-begin {
-  border-top: 1px solid rgba(226,61,61,0.45) !important;
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-begin {
+  border-top: 1px solid rgba(226,61,61,0.45);
   border-radius: 2px 2px 0 0;
 }
-.cm-s-obsidian .HyperMD-codeblock-end {
-  border-bottom: 1px solid rgba(226,61,61,0.45) !important;
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock-end {
+  border-bottom: 1px solid rgba(226,61,61,0.45);
   border-radius: 0 0 2px 2px;
 }
 
